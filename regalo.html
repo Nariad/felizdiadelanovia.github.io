@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELIZ DIA DE LA NOVIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Estilos de la ruleta */
+        .ruleta {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+        }
+        .regalo {
+            width: 80px;
+            height: 80px;
+            background-color: #ffcc66;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            /* Estilos de los diferentes colores de los regalos */
+            background-color: #ffcc66;
+            /* Agrega más estilos para los demás colores */
+        }
+        .regalo1 {
+            transform: rotate(30deg) translateY(-150px);
+            /* Estilos para el primer regalo */
+            background-color: #ffcc66;
+        }
+        .regalo2 {
+            transform: rotate(90deg) translateY(-150px);
+            /* Estilos para el segundo regalo */
+            background-color: #66ccff;
+        }
+        .regalo3 {
+            transform: rotate(150deg) translateY(-150px);
+            /* Estilos para el tercer regalo */
+            background-color: #ff6666;
+        }
+        .regalo4 {
+            transform: rotate(210deg) translateY(-150px);
+            /* Estilos para el cuarto regalo */
+            background-color: #66ffcc;
+        }
+        .regalo5 {
+            transform: rotate(270deg) translateY(-150px);
+            /* Estilos para el quinto regalo */
+            background-color: #cc66ff;
+        }
+        .regalo6 {
+            transform: rotate(330deg) translateY(-150px);
+            /* Estilos para el sexto regalo */
+            background-color: #cc6655;
+        }
+        /* Añade más estilos para los demás regalos */
+
+        /* Indicador gráfico */
+        .indicador {
+            width: 200px;
+            height: 20px;
+            background-color: #eee;
+            border: 1px solid #999;
+            margin: 20px auto;
+            position: relative;
+        }
+        .progreso {
+            height: 100%;
+            background-color: #66cc66;
+            width: 0;
+            transition: width 2s ease-in-out;
+        }
+
+        /* Flecha */
+        .flecha {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #ff0000;
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 10px);
+            transform-origin: bottom;
+            transition: transform 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ruleta de Regalos para peteñina</h1>
+    </header>
+
+    <main>
+        <div class="ruleta">
+            <div class="regalo regalo1">50 beshito de peteño</div>
+            <div class="regalo regalo2">1 ensalada</div>
+            <div class="regalo regalo3">1 ensalada y 1 heladito</div>
+            <div class="regalo regalo4">Fotito de lo que quieras</div>
+            <div class="regalo regalo5">Video de lo que quieras</div>
+            <div class="regalo regalo6">Caprichito pa esta enana mimada</div>
+            <!-- Agrega más regalos aquí -->
+        </div>
+        <div class="indicador">
+            <div class="progreso"></div>
+        </div>
+        <div class="flecha"></div> <!-- Flecha -->
+        <button id="btnGirar">¡Girar la Ruleta!</button>
+    </main>
+
+    <footer>
+        <p>Esta página web fue creada con amor para mi señorita - Feliz día :-)</p>
+        <button onclick="volverPaginaPrincipal()">Volver a la página principal</button>
+    </footer>
+
+    <script>
+        const ruleta = document.querySelector(".ruleta");
+        const btnGirar = document.getElementById("btnGirar");
+        const indicadorProgreso = document.querySelector(".progreso");
+        const flecha = document.querySelector(".flecha"); // Flecha
+
+        function volverPaginaPrincipal() {
+            window.location.href = "petena.html";
+        }
+        
+        btnGirar.addEventListener("click", function () {
+            const numRegalos = ruleta.children.length;
+            const angulo = 360 / numRegalos;
+            const randomAngulo = angulo * Math.floor(Math.random() * numRegalos) + 720;
+
+            ruleta.style.transition = "transform 3s ease-out";
+            ruleta.style.transform = `rotate(${randomAngulo}deg)`;
+
+            indicadorProgreso.style.transition = "width 3s ease-in-out";
+            indicadorProgreso.style.width = "100%";
+
+            // Reiniciamos la flecha
+            flecha.style.transition = "none";
+            flecha.style.transform = "rotate(0deg)";
+
+            setTimeout(() => {
+                const regalos = Array.from(ruleta.children);
+                const indiceRegaloSeleccionado = Math.floor(randomAngulo / angulo) % numRegalos;
+                const regaloSeleccionado = regalos[indiceRegaloSeleccionado];
+
+                alert(`¡Felicidades! Has ganado: ${regaloSeleccionado.textContent}`);
+                
+                // Reiniciamos el indicador y la flecha
+                indicadorProgreso.style.width = "0";
+                flecha.style.transition = "none";
+                flecha.style.transform = "rotate(0deg)";
+            }, 3000); // Esperamos 3 segundos para dar tiempo a la animación de girar
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia sesión guapa ;-)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 65%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+        footer {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .login-box {
+            border: 2px solid red;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            width: 80%;
+            margin: 30px auto;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-error {
+            color: red;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Si lees esto me debes un beso</h1>
+    </header>
+
+    <main>
+        <h2>Inicia sesión</h2>
+        <div class="login-box">
+            <form id="formulario" onsubmit="return comprobarCredenciales()">
+                <input type="text" id="nombre" placeholder="Nombre">
+                <input type="text" id="apellidos" placeholder="Apellidos">
+                <p class="login-error" id="error-message"></p>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Esta página web fue creada con amor para mi señorita - Feliz día :-)</p>
+    </footer>
+
+    <script>
+        function comprobarCredenciales() {
+            const nombre = document.getElementById("nombre").value;
+            const apellidos = document.getElementById("apellidos").value;
+
+            if (nombre === "Yudy Vanessa" && apellidos === "Pinzón Sanabria") {
+                return true;
+            } else {
+                const errorMessage = document.getElementById("error-message");
+                errorMessage.innerText = "Los valores ingresados no son correctos o no eres mi peteña :-(. Te recomiendo que pongas tu nombre completo enanita";
+                return false;
+            }
+        }
+
+        document.getElementById("formulario").onsubmit = function(event) {
+            event.preventDefault(); // Prevenimos el envío del formulario por defecto
+            if (comprobarCredenciales()) {
+                window.location.href = "petena.html";
+            }
+        };
+    </script>
+</body>
+</html>

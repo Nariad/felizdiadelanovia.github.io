@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELIZ DIA DE LA NOVIA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        img {
+            max-width: 65%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+        footer {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .diploma {
+            background-color: #f8e8c8;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .diploma::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAzUlEQVR42mP4//8/AyUYgJgYGBj+B8pFgMgABcRR4XcAg8AAAACAOmgINexPtgAAAABJRU5ErkJggg==");
+            pointer-events: none;
+        }
+        .diploma h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #cc9900;
+        }
+        .diploma h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 10px solid #cc9900;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Certificado para la Mejor Novia</h1>
+    </header>
+
+    <main>
+        <div class="diploma">
+            <div class="border"></div>
+            <h2>CERTIFICADO</h2>
+            <p>Por la presente se certifica que</p>
+            <h3>YUDY VANESSA PINZÓN SANABRIA</h3>
+            <p>ha sido reconocida como la mejor novia del mundo. Su calidad, amor incondicional y alegría han sido una bendición en mi vida.</p>
+            <p>En virtud de lo anterior, se le otorga la distinción de mejor novia con una renovación vitalicia para seguir disfrutando de su amor y compañía.</p>
+            <p>Dado en muestra de mi amor y agradecimiento en esta fecha 01-08-2023.</p>
+            <p>Firmado: ADRIÁN</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Esta página web fue creada con amor para mi señorita - Feliz día :-)</p>
+        <button onclick="volverPaginaPrincipal()">Volver a la página principal</button>
+    </footer>
+
+    <script>
+        function volverPaginaPrincipal() {
+            window.location.href = "petena.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELIZ DIA DE LA NOVIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .categoria {
+            margin: 30px 0;
+        }
+        .categoria h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .fotos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .foto {
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .foto img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .foto:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .categoria .fotos {
+            display: none;
+        }
+
+        .foto img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .foto img.pixelado {
+            filter: blur(5px);
+        }
+
+        .foto img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dedicatoria y sorpresas de tu señorito</h1>
+    </header>
+
+    <main>
+        <h2>Escribe una dedicatoria para tu enanito:</h2>
+        <form id="formulario">
+            <textarea id="dedicatoria" rows="6" cols="80" placeholder="Escribe tu dedicatoria aquí..."></textarea>
+            <br>
+            <button type="button" onclick="copiarDedicatoria()">Copiar Dedicatoria</button>
+        </form>
+
+        <div class="categoria">
+            <h2 onclick="toggleFotos(this)">Peteño 😇</h2>
+            <div class="fotos">
+                <div class="foto">
+                    <img class="pixelado" src="angel1.jpg" data-src="angel1.jpg" alt="angel1.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="angel2.jpg" data-src="angel2.jpg" alt="angel2.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="angel3.jpg" data-src="angel3.jpg" alt="angel2.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="angel4.jpg" data-src="angel4.jpg" alt="angel2.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="angel5.jpg" data-src="angel5.jpg" alt="angel2.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="angel6.jpg" data-src="angel6.jpg" alt="angel2.jpg">
+                </div>
+                <!-- Agrega más fotos para esta categoría -->
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h2 onclick="toggleFotos(this)">Peteño 😈</h2>
+            <div class="fotos">
+                <div class="foto">
+                    <img class="pixelado" src="demon1.jpg" data-src="demon1.jpg" alt="demon1.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="demon2.jpg" data-src="demon2.jpg" alt="demon2.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="demon3.jpg" data-src="demon3.jpg" alt="demon3.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="demon4.jpg" data-src="demon4.jpg" alt="demon4.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="demon5.jpg" data-src="demon5.jpg" alt="demon5.jpg">
+                </div>
+                <div class="foto">
+                    <img class="pixelado" src="demon6.jpg" data-src="demon6.jpg" alt="demon6.jpg">
+                </div>
+                <!-- Agrega más fotos para esta categoría -->
+            </div>
+        </div>
+
+        <!-- Puedes agregar más categorías y fotos aquí -->
+
+    </main>
+
+    <footer>
+        <p>Esta página web fue creada con amor para mi señorita - Feliz día :-)</p>
+        <button onclick="volverPaginaPrincipal()">Volver a la página principal</button>
+    </footer>
+
+    <script>
+        function volverPaginaPrincipal() {
+            window.location.href = "petena.html";
+        }
+        
+        function toggleFotos(categoria) {
+            const fotosDiv = categoria.nextElementSibling;
+            fotosDiv.style.display = fotosDiv.style.display === "none" ? "block" : "none";
+        }
+
+        function copiarDedicatoria() {
+            const dedicatoria = document.getElementById("dedicatoria");
+            dedicatoria.select();
+            document.execCommand("copy");
+            alert("¡Dedicatoria copiada al portapapeles! Ahora puedes pegarla donde desees.");
+        }
+
+        // Evento clic para mostrar las imágenes en alta resolución
+        const pixeladoImages = document.getElementsByClassName("pixelado");
+        for (const image of pixeladoImages) {
+            image.addEventListener("click", function() {
+                const highResSrc = this.getAttribute("data-src");
+                this.setAttribute("src", highResSrc);
+                this.classList.remove("pixelado");
+            });
+        }
+    </script>
+</body>
+</html>

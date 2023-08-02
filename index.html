@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELIGRO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        p {
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid red;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>¡ALERTA DE SEGURIDAD!</h1>
+    <p>Se ha detectado una actividad sospechosa en tu cuenta.</p>
+    <p>Inicia sesión nuevamente para asegurar tu cuenta.</p>
+    <form>
+        <a href="comprobacion.html" onclick="mostrarMensaje()">
+            <img src="OIP.jpeg" alt="">
+        </a>
+    </form>
+
+    <script>
+        function mostrarMensaje() {
+            const mensaje = "¿Seguro que quieres continuar? No es seguro, podría robarte los datos al igual que el corazón.";
+            alert(mensaje);
+        }
+    </script>
+</body>
+</html>
